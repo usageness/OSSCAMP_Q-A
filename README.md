@@ -1,24 +1,11 @@
-# untitled
+# OSSCAMP Q&A
 
-## Project setup
-```
-npm install
-```
+## 프로젝트 설명
+군 생활에 필요한 정보들을 질문과 답변을 통해 얻어갈 수 있는 페이지입니다.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+*본 repository는 국방부오픈소스아카데미를 위해 제작된 프로젝트입니다.
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 국방부오픈소스아카데미
+[https://osam.kr](https://osam.kr/).
