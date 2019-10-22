@@ -2,17 +2,17 @@
   <div class="login">
     <img alt="Q logo" width=100 src="../assets/logo_Q.png"><br>
     <div class="con">
-      <h1>{{ msg }}</h1>
+      <h1>Login</h1>
       <img alt="id_pic" width=15 src="../assets/user.png"><input v-model="id" placeholder="id"><br>
-      <img alt="pw_pic" width=15 height=20 src="../assets/lock.png"><input v-model="pw" placeholder="pw">
-      <button id="login">Login</button>
+      <img alt="pw_pic" width=15 src="../assets/lock.png"><input v-model="pw" placeholder="pw">
+      <button id="login" onClick="location.href='/#/main'">Login</button>
 
-      <a id ="forgot" href="https://cli.vuejs.org" target="_blank" rel="noopener">Forgot password?</a>.
+      <a id ="forgot" href="https://cli.vuejs.org" target="_blank" rel="noopener">Forgot password?</a>
 
       <hr/>
 
-      <button id="facebook">Login With Facebook</button>
-      <button id="google">Login With Google</button>
+      <button id="facebook" onClick="location.href='/#/main'">Login With Facebook</button>
+      <button id="google" onClick="location.href='/#/main'">Login With Google</button>
     </div>
   </div>
 </template>
@@ -48,7 +48,7 @@ img {
 .login{
   width: 100%;
   padding-top: 10%;
-  padding-bottom: 30%;
+  padding-bottom: 8%;
 }
 .con{
   display: inline-block;
@@ -60,11 +60,14 @@ img {
 .con button {
   display: inline-block;
   width: 89%;
+  height: 40px;
+  font-size: 16pt;
   margin-top: 10px;
 }
 .con input {
   display: inline-block;
   width: 80%;
+  font-size: 16pt;
   margin-top: 10px;
   margin-left: 5px;
 }
