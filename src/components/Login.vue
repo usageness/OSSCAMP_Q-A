@@ -4,15 +4,16 @@
     <div class="con">
       <h1>Login</h1>
       <img alt="id_pic" width=15 src="../assets/user.png"><input v-model="id" placeholder="id"><br>
-      <img alt="pw_pic" width=15 src="../assets/lock.png"><input v-model="pw" placeholder="pw">
-      <button id="login" onClick="location.href='/#/main'">Login</button>
+      <img alt="pw_pic" width=15 src="../assets/lock.png"><input v-model="pw" placeholder="pw"><br>
+      <b-button variant="outline-primary" id="login" onClick="location.href='/#/main'">Login</b-button>
 
       <a id ="forgot" href="https://cli.vuejs.org" target="_blank" rel="noopener">Forgot password?</a>
 
       <hr/>
 
-      <button id="facebook" onClick="location.href='/#/main'">Login With Facebook</button>
-      <button id="google" onClick="location.href='/#/main'">Login With Google</button>
+      <b-button variant="outline-primary" id="facebook" onClick="location.href='/#/main'">Login With Facebook</b-button>
+      <b-button variant="outline-primary" id="google" onClick="location.href='/#/main'">Login With Google</b-button>
+
     </div>
   </div>
 </template>
@@ -49,12 +50,13 @@ img {
   width: 100%;
   padding-top: 10%;
   padding-bottom: 8%;
+  margin-top: -5%;
 }
 .con{
   display: inline-block;
   margin: auto;
-  width: 15%;
-  padding-bottom: 30px;
+  width: 20%;
+  padding: 2%;
   background: #dddddd;
 }
 .con button {
