@@ -5,9 +5,9 @@
                 <h1>궁금한 내용을 빠르게 검색해보세요</h1>
                 <el-input id="search-bar" v-model="searchInput" placeholder="검색할 내용을 입력하세요..."></el-input>
             </div>
-            <div class="s_result">
+            <div class="s_result" v-if="searchInput!=''" v-show="true">
                 <ul>
-                    <li v-if="searchInput != ''"><h3>해당하는 내용이 없습니다</h3></li>
+                    <li v-for="(item, index) in items" :key="index" v-if="item.title.includes(searchInput)" @click="context_view(item.title, item.context)">{{item.title}}</li>
                 </ul>
             </div>
             <div class="menuList">
@@ -18,26 +18,52 @@
                 <el-button @click="gotoPage('board-popular')" type="warning" plain >인기있는 질문과 답변
                 </el-button>
             </div>
-
         </div>
     </div>
 </template>
 
 <script>
+    import * as boardActions from "@/store/modules/board/types";
+    import {mapActions, mapGetters, mapState} from "vuex";
+    import App from "@/App";
+    import state from "@/store/modules/board/state";
 
     export default {
         name: "main",
-        el: '.unsolved',
 
         data: function () {
             return {
                 searchInput: '',
             }
         },
+        computed: {
+            ...mapState({
+                items({board}) {
+                    console.log("state >> ", board);
+                    //console.log("DDD test111 ", board.items)
+                    return board.items;
+                },
+                isInit({board}) {
+                    return board.isInit;
+                }
+            })
+        },
         methods: {
             gotoPage(pageName) {
                 this.$router.push({path: "/" + pageName})
-            }
+            },
+            context_view: function (title, con) {
+                console.log("클릭댐 main", state.is_Show, title, con);
+                this[boardActions.LOAD_SHOW]();
+                App.title = title;
+                App.con = con;
+            },
+            ...mapActions(boardActions)
+        },
+        mounted() {
+            console.log("DDD start1 main", this.isInit);
+            console.log("DDD start2 main");
+            this[boardActions.LOAD_ITEMS_SEARCHED]();
         }
     }
 </script>
@@ -62,6 +88,11 @@
     }
 
     ul li {
+        padding: 8px;
+        border-bottom: 1px dashed #eeeeee;
+    }
+    ul li:hover {
+        background-color: #eeeeee;
     }
 
     .blank {
@@ -89,7 +120,10 @@
         margin-left: 10px;
     }
     .s_result {
+        margin: auto;
+        max-width: 60%;
         max-height: 500px;
+        overflow: auto;
     }
     .menuList {
         padding-top: 50px;

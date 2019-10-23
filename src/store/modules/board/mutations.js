@@ -18,5 +18,13 @@ export default {
 		state.items = items;
 		state.isInit=true;
 		state.loaded="popular";
+	},
+	[board.UPDATE_ITEMS_SEARCHED](state,items){
+		console.log("DDD state ", state, items);
+		state.items = items;
+	},
+	[board.UPDATE_SHOW](state){
+		console.log("DDD state ", state, state.is_Show);
+		state.is_Show = !state.is_Show;
 	}
 }

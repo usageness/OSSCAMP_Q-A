@@ -45,6 +45,7 @@
 
         methods: {
             ...mapActions(boardActions)
+
         },
         mounted() {
             console.log("DDD start1", this.isInit);

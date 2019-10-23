@@ -1,7 +1,7 @@
 # OSSCAMP Q&A
 
 ## 프로젝트 설명
-<img src="./src/assets/realLogo.png" alt="ARMY Q&A">
+<br><img src="./src/assets/realLogo.png" alt="ARMY Q&A">
 <br><br>
 군 생활에 필요한 정보들을 질문과 답변을 통해 얻어갈 수 있는 페이지입니다.
 
@@ -18,9 +18,14 @@
 - 전역 전 마지막으로 짬에서 나오는 바이브를 분출하고 싶은 병장
 - 다른 병사들이 무슨 생각을 하고 사는지 궁금한 싶은 모든 군인
 <br><br><br><br>
-######본 repository는 국방부오픈소스아카데미를 위해 제작된 프로젝트입니다.
 
 
-<br><br>
+
+###기술 스택
+- [Vue.js](https://vuejs.org/)
+- [element-ui](https://element.eleme.io/)<br><br>
+
 ### 국방부오픈소스아카데미
+본 repository는 국방부오픈소스아카데미를 위해 제작된 프로젝트입니다.
+
 [https://osam.kr](https://osam.kr/)

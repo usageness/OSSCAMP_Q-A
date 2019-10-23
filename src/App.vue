@@ -13,9 +13,26 @@
                     <router-link to="/board-popular" tag="el-menu-item" index="2-3">인기있는 질문</router-link>
                 </el-submenu>
                 <div class="block">
-                    <router-link to="/login"><el-avatar :size="40" :src="circleUrl"></el-avatar></router-link>
+                    <router-link to="/login">
+                        <el-avatar :size="40" :src="circleUrl"></el-avatar>
+                    </router-link>
                 </div>
             </el-menu>
+        </div>
+
+        <div>
+            <!--<button @click="handle_toggle" type="button">
+                모달창 띄우기
+            </button>-->
+            <div v-show="showing">
+                <h3>{{showing}}</h3>
+                <h5>{{title}}</h5>
+                <p>{{con}}</p>
+
+                <button @click="handle_toggle" type="button">
+                    확인
+                </button>
+            </div>
         </div>
 
         <router-view></router-view>
@@ -24,19 +41,40 @@
 
 
 <script>
+    import state from "@/store/modules/board/state";
+    import * as boardActions from "@/store/modules/board/types";
+    import {mapActions, mapGetters, mapState} from "vuex";
+
     export default {
         data() {
             return {
                 activeIndex: '1',
                 url: './assets/realLogo.png',
                 circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+                showing: state.is_Show
             };
+        },
+        computed: {
+            ...mapState({
+                get: function() {
+                    console.log("showing - state.is_Show: ", state.is_Show);
+                    return state.is_Show;
+                }
+            })
         },
         methods: {
             handleSelect(key, keyPath) {
-                // eslint-disable-next-line no-console
                 console.log(key, keyPath);
-            }
+            },
+            handle_toggle: function () {
+                this[boardActions.LOAD_SHOW]();
+            },
+            ...mapActions(boardActions)
+        },
+        mounted() {
+            this[boardActions.LOAD_SHOW]();
+            console.log(state.is_Show);
+
         }
     }
 </script>
@@ -64,9 +102,9 @@
     }
 
     .el-avatar {
-      margin-top: 10px;
-      margin-right: 10px;
-      float: right;
+        margin-top: 10px;
+        margin-right: 10px;
+        float: right;
     }
 
     .blank {

@@ -1,5 +1,6 @@
 export default {
 	items:[],
 	isInit:false,
-	loaded:null
+	loaded:null,
+	is_Show:true
 }
