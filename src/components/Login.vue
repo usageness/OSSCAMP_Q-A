@@ -5,14 +5,20 @@
             <el-form ref="form" :model="form" label-width="120px">
                 <el-input v-model="idInput" placeholder="ID"></el-input>
                 <el-input v-model="pwInput" placeholder="Password"></el-input>
-                <el-button onClick="location.href='/'" type="success" plain>로그인</el-button>
+                <router-link to="/">
+                    <el-button type="success" plain>로그인</el-button>
+                </router-link>
             </el-form>
 
             <a id="forgot" href="https://cli.vuejs.org" target="_blank" rel="noopener">Forgot password?</a>
 
             <hr/>
-            <el-button size="medium" onClick="location.href='/'" type="primary" plain round>Facebook 로그인</el-button>
-            <el-button size="medium" onClick="location.href='/'" type="danger" plain round>Google 로그인</el-button>
+            <router-link to="/">
+                <el-button size="medium" type="primary" plain round>Facebook 로그인</el-button>
+            </router-link>
+            <router-link to="/">
+                <el-button size="medium" type="danger" plain round>Google 로그인</el-button>
+            </router-link>
 
         </div>
     </div>
@@ -23,8 +29,8 @@
         name: "login",
         data: function () {
             return {
-                idInput:'',
-                pwInput:''
+                idInput: '',
+                pwInput: ''
             }
         }
     }
@@ -54,8 +60,11 @@
         display: inline-block;
     }
 
+    .router-link {
+        display: inline-block;
+    }
     #Q {
-        margin-bottom:5%;
+        margin-bottom: 5%;
     }
 
     .login {
@@ -70,7 +79,7 @@
         margin: auto;
         width: 20%;
         padding: 2%;
-        background: #dddddd;
+        border: 1px Dashed #dddddd;
     }
 
 
@@ -85,5 +94,14 @@
     #forgot {
         display: inline-block;
         margin-top: 50px;
+    }
+
+    .el-input {
+        margin-bottom: 10px;
+    }
+
+    .el-button {
+        width: 100%;
+        margin-bottom: 10px;
     }
 </style>
