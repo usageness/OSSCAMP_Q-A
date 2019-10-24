@@ -5,7 +5,7 @@
                 <div class="head">번호</div>
                 글 제목
             </li>
-            <li v-for="(item, index) in items" :key="index">
+            <li v-for="(item, index) in items" :key="index" @click="context_view(item.title, item.context, item.recom, item.reply)">
                 <div class="idx">{{index}}</div>
                 {{item.title}}
             </li>
@@ -19,9 +19,9 @@
 </template>
 
 <script>
-    /* eslint-disable */
     import * as boardActions from "@/store/modules/board/types";
     import {mapActions, mapGetters, mapState} from "vuex";
+    import state from "@/store/modules/board/state";
 
 
     export default {
@@ -42,6 +42,10 @@
         },
 
         methods: {
+            context_view: function (title, con, recom, reply) {
+                console.log("클릭댐 main", state.is_Show, title, con);
+                this[boardActions.LOAD_SHOW_VISIBLE]({title: title, con: con, recom: recom, reply: reply});
+            },
             ...mapActions(boardActions)
         },
         mounted() {

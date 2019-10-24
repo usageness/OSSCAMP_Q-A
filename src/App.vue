@@ -2,7 +2,7 @@
     <div id="app">
         <div class="nav">
             <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-                <el-menu-item index="0" disabled>
+                <el-menu-item index="0">
                     <img src="./assets/realLogo.png" alt="logo">
                 </el-menu-item>
                 <router-link to="/" tag="el-menu-item" index="1">메인</router-link>
@@ -30,11 +30,27 @@
                     <span id="recomm">{{posting.recom}}</span>
                 </div>
                 <el-divider></el-divider>
-                <div id="postReply"><i class="el-icon-chat-square"></i><span id="replyblock">{{posting.reply}}</span>
+                <div id="postReply">
+                    <i class="el-icon-chat-square"></i>
+                    <div id="replyarea">
+                        <span class="replyblock">{{posting.reply}}</span>
+
+                        <span class="replyblock">
+                            <el-input
+                                    type="textarea"
+                                    :autosize="{ minRows: 2, maxRows: 6}"
+                                    placeholder="답변을 작성해주세요"
+                                    v-model="replyinput">
+                            </el-input>
+                        </span>
+                    </div>
                 </div>
                 <div id="postButton">
+                    <el-button @click="reply_open" type="primary" icon="el-icon-edit" plain>
+                        답변하기
+                    </el-button>
                     <el-button @click="handle_toggle" type="primary" plain>
-                        확인
+                        닫기
                     </el-button>
                 </div>
             </div>
@@ -56,6 +72,7 @@
                 activeIndex: '1',
                 url: './assets/realLogo.png',
                 circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+                replyinput: '',
             };
         },
         computed:
@@ -71,12 +88,14 @@
             handle_toggle: function () {
                 this[boardActions.LOAD_SHOW_INVISIBLE]();
             },
+            reply_open() {
+                this.$message('답변 기능은 준비중입니다.');
+            },
             ...mapActions(boardActions)
         },
         mounted() {
             this[boardActions.LOAD_SHOW_INVISIBLE]();
             console.log(state.is_Show);
-
         }
     }
 </script>
@@ -189,15 +208,19 @@
     #postReply i {
         width: 5%;
     }
-
-    #replyblock {
+    #replyarea {
         display: inline-block;
         width: 85%;
+    }
+
+    .replyblock {
+        display: inline-block;
         text-align: left;
+        width: 100%;
         padding-top: 15px;
         padding-bottom: 15px;
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 25px;
+        padding-right: 25px;
         border: 1px dashed #dddddd;
     }
 

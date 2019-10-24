@@ -25,7 +25,6 @@
 <script>
     import * as boardActions from "@/store/modules/board/types";
     import {mapActions, mapGetters, mapState} from "vuex";
-    import App from "@/App";
     import state from "@/store/modules/board/state";
 
     export default {

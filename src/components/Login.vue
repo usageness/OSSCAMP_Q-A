@@ -3,8 +3,8 @@
         <div class="con">
             <img id="Q" alt="Q logo" width=100 src="../assets/logo_Q.png"><br>
             <el-form ref="form" :model="form" label-width="120px">
-                <el-input v-model="idInput" placeholder="ID" v-validate="'required|min:3'"></el-input>
-                <el-input v-model="pwInput" placeholder="Password"></el-input>
+                <el-input v-model="idInput" placeholder="ID"></el-input>
+                <el-input v-model="pwInput" placeholder="Password" show-password></el-input>
                 <el-button @click="onSubmit()" type="success" plain>로그인</el-button>
             </el-form>
 
@@ -38,7 +38,7 @@
                 if(this.idInput != '' && this.pwInput != '')
                     this.$router.push({path: "/"});
                 else
-                    alert("아이디 또는 비밀번호를 확인해주세요");
+                    this.$message('아이디와 비밀번호를 확인해주세요');
             }
         }
     }

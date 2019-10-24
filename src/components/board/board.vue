@@ -5,7 +5,7 @@
                 <div class="head">번호</div>
                 글 제목
             </li>
-            <li v-for="(item, index) in items" :key="index">
+            <li v-for="(item, index) in items" :key="index" @click="context_view(item.title, item.context, item.recom, item.reply)">
                 <div class="idx">{{index}}</div>
                 {{item.title}}
             </li>
@@ -16,14 +16,14 @@
                 :total="10">
 
         </el-pagination>
-        <div class="write"><el-button type="primary" icon="el-icon-edit">작성하기</el-button></div>
+        <div class="write"><el-button type="primary" icon="el-icon-edit" @click="write_open">작성하기</el-button></div>
     </div>
 </template>
 
 <script>
-    /* eslint-disable */
     import * as boardActions from "@/store/modules/board/types";
     import {mapActions, mapGetters, mapState} from "vuex";
+    import state from "@/store/modules/board/state";
 
 
     export default {
@@ -44,6 +44,13 @@
         },
 
         methods: {
+            context_view: function (title, con, recom, reply) {
+                console.log("클릭댐 main", state.is_Show, title, con);
+                this[boardActions.LOAD_SHOW_VISIBLE]({title: title, con: con, recom: recom, reply: reply});
+            },
+            write_open() {
+                this.$message('질문 기능은 준비중입니다.');
+            },
             ...mapActions(boardActions)
 
         },
