@@ -2,8 +2,8 @@
     <div id="app">
         <div class="nav">
             <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-                <el-menu-item index="0" disabled><img
-                        src="./assets/realLogo.png" alt="logo">
+                <el-menu-item index="0" disabled>
+                    <img src="./assets/realLogo.png" alt="logo">
                 </el-menu-item>
                 <router-link to="/" tag="el-menu-item" index="1">메인</router-link>
                 <el-submenu index="2">
@@ -26,8 +26,8 @@
             </button>-->
             <div v-show="showing">
                 <h3>{{showing}}</h3>
-                <h5>{{title}}</h5>
-                <p>{{con}}</p>
+                <h3>{{posting.title}}</h3>
+                <p>{{posting.con}}</p>
 
                 <button @click="handle_toggle" type="button">
                     확인
@@ -51,28 +51,25 @@
                 activeIndex: '1',
                 url: './assets/realLogo.png',
                 circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
-                showing: state.is_Show
             };
         },
-        computed: {
-            ...mapState({
-                get: function() {
-                    console.log("showing - state.is_Show: ", state.is_Show);
-                    return state.is_Show;
-                }
+        computed:
+            mapGetters({
+                showing: 'getShow',
+                posting: 'getPost'
             })
-        },
+        ,
         methods: {
             handleSelect(key, keyPath) {
                 console.log(key, keyPath);
             },
             handle_toggle: function () {
-                this[boardActions.LOAD_SHOW]();
+                this[boardActions.LOAD_SHOW_INVISIBLE]();
             },
             ...mapActions(boardActions)
         },
         mounted() {
-            this[boardActions.LOAD_SHOW]();
+            this[boardActions.LOAD_SHOW_INVISIBLE]();
             console.log(state.is_Show);
 
         }

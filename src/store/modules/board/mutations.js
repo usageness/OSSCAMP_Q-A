@@ -23,8 +23,14 @@ export default {
 		console.log("DDD state ", state, items);
 		state.items = items;
 	},
-	[board.UPDATE_SHOW](state){
+	[board.UPDATE_SHOW_VISIBLE](state, payload){
 		console.log("DDD state ", state, state.is_Show);
-		state.is_Show = !state.is_Show;
+		state.is_Show = true;
+		state.title = payload.title;
+		state.con = payload.con;
+	},
+	[board.UPDATE_SHOW_INVISIBLE](state){
+		console.log("DDD state ", state, state.is_Show);
+		state.is_Show = false;
 	}
 }

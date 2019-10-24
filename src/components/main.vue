@@ -54,9 +54,7 @@
             },
             context_view: function (title, con) {
                 console.log("클릭댐 main", state.is_Show, title, con);
-                this[boardActions.LOAD_SHOW]();
-                App.title = title;
-                App.con = con;
+                this[boardActions.LOAD_SHOW_VISIBLE]({title: title, con: con});
             },
             ...mapActions(boardActions)
         },

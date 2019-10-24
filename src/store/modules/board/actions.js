@@ -1,4 +1,3 @@
-/* eslint-disable */
 import * as board from "./types";
 import axios from "axios";
 
@@ -24,7 +23,12 @@ export default {
         commit(board.UPDATE_ITEMS_SEARCHED, result.data.items);
     },
 
-    [board.LOAD_SHOW]({commit}, payload) {
-        commit(board.UPDATE_SHOW);
-    }
+    [board.LOAD_SHOW_VISIBLE]({commit}, payload) {
+        commit(board.UPDATE_SHOW_VISIBLE, payload);
+    },
+
+	[board.LOAD_SHOW_INVISIBLE]({commit}, payload) {
+		commit(board.UPDATE_SHOW_INVISIBLE);
+	},
+
 }
