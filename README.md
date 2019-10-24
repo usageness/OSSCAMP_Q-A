@@ -29,9 +29,15 @@
 <br>
 
 ## 설치 안내 (Installation Process)
-아래 방법으로 node module 설치를 진행해주시기 바랍니다. 
+아래 방법으로 node module 설치 후 실행해주시기 바랍니다. 
 
-``` npm install ```
+```
+npm install 
+// node module install
+
+npm run serve
+// server running on localhost:8080
+```
 
 <BR>
 
@@ -39,6 +45,11 @@
 
 메인 화면의 검색창에서 원하는 정보를 빠르게 찾아보거나<br>
 새로운 질문을 작성하고, 다른 사용자의 질문에 답변할 수 있습니다.
+
+실제 데이터베이스에 연동한 것이 아닌 json 파일을 불러오는 방식이기 때문에<br>
+브라우저를 새로고침 할 경우 데이터가 초기화됩니다.
+
+현재 질문 작성 기능은 준비중입니다.
 
 ## 파일 정보 및 목록 (File Manifest)
 

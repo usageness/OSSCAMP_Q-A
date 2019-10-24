@@ -33,8 +33,7 @@
                 <div id="postReply">
                     <i class="el-icon-chat-square"></i>
                     <div id="replyarea">
-                        <span class="replyblock">{{posting.reply}}</span>
-
+                        <span class="replyblock" v-for="(item, index) in posting.reply" :key="index">{{item}}</span>
                         <span class="replyblock">
                             <el-input
                                     type="textarea"
@@ -46,7 +45,7 @@
                     </div>
                 </div>
                 <div id="postButton">
-                    <el-button @click="reply_open" type="primary" icon="el-icon-edit" plain>
+                    <el-button @click="addItem" type="primary" icon="el-icon-edit" plain>
                         답변하기
                     </el-button>
                     <el-button @click="handle_toggle" type="primary" plain>
@@ -75,24 +74,54 @@
                 replyinput: '',
             };
         },
-        computed:
-            mapGetters({
+        computed: {
+            ...mapState({
+                items({board}) {
+                    console.log("state ", board);
+                    //console.log("DDD test111 ", board.items)
+                    return board.items;
+                }
+            }),
+            ...mapGetters({
                 showing: 'getShow',
-                posting: 'getPost'
+                posting: 'getPost',
+                reply: 'getReply',
             })
-        ,
+        },
         methods: {
             handleSelect(key, keyPath) {
                 console.log(key, keyPath);
-            },
+            }
+            ,
             handle_toggle: function () {
                 this[boardActions.LOAD_SHOW_INVISIBLE]();
-            },
+            }
+            ,
             reply_open() {
                 this.$message('답변 기능은 준비중입니다.');
-            },
-            ...mapActions(boardActions)
-        },
+            }
+            ,
+            addItem() {
+                if(this.replyinput != '') {
+                    this[boardActions.ADD_ITEM]({
+                        newItem: this.replyinput
+                    });
+                    this.clearEditItem();
+                    this.$message('답변이 등록되었습니다.');
+                }
+                else{
+                    this.$message('답글을 먼저 입력해주세요.');
+                }
+            }
+            ,
+            clearEditItem() {
+                this.replyinput = "";
+            }
+            ,
+            ...
+                mapActions(boardActions)
+        }
+        ,
         mounted() {
             this[boardActions.LOAD_SHOW_INVISIBLE]();
             console.log(state.is_Show);
@@ -208,6 +237,7 @@
     #postReply i {
         width: 5%;
     }
+
     #replyarea {
         display: inline-block;
         width: 85%;

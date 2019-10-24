@@ -31,4 +31,12 @@ export default {
 		commit(board.UPDATE_SHOW_INVISIBLE);
 	},
 
+    [board.ADD_ITEM]({commit}, payload) {
+        commit(board.ADD_ITEM, payload.newItem);
+    },
+
+    [board.LOAD_REPLY]({commit}, payload) {
+        commit(board.UPDATE_REPLY, payload);
+    },
+
 }
