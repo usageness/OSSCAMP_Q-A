@@ -10,7 +10,9 @@ export default {
 		console.log('title:', state.title, 'con:', state.con);
 		let result = {
 			title: state.title,
-			con: state.con
+			con: state.con,
+			reply: state.reply,
+			recom: state.recom
 		};
 		return result;
 	}

@@ -21,17 +21,22 @@
         </div>
 
         <div>
-            <!--<button @click="handle_toggle" type="button">
-                모달창 띄우기
-            </button>-->
             <div v-show="showing">
-                <h3>{{showing}}</h3>
-                <h3>{{posting.title}}</h3>
-                <p>{{posting.con}}</p>
-
-                <button @click="handle_toggle" type="button">
-                    확인
-                </button>
+                <span id="postTitle">{{posting.title}}</span>
+                <el-divider></el-divider>
+                <span id="postContext">{{posting.con}}</span>
+                <div id="postRecom">
+                    <el-button type="warning" icon="el-icon-star-off" circle plain></el-button>
+                    <span id="recomm">{{posting.recom}}</span>
+                </div>
+                <el-divider></el-divider>
+                <div id="postReply"><i class="el-icon-chat-square"></i><span id="replyblock">{{posting.reply}}</span>
+                </div>
+                <div id="postButton">
+                    <el-button @click="handle_toggle" type="primary" plain>
+                        확인
+                    </el-button>
+                </div>
             </div>
         </div>
 
@@ -143,5 +148,60 @@
     .row-bg {
         padding: 10px 0;
         background-color: #f9fafc;
+    }
+
+    #postTitle {
+        display: block;
+        font-size: 16pt;
+        padding-top: 30px;
+        color: #aaaaaa;
+        font-weight: bold;
+    }
+
+    #postContext {
+        display: block;
+        font-size: 14pt;
+        color: #aaaaaa;
+        padding-bottom: 30px;
+    }
+
+    #postRecom {
+        display: block;
+        color: #444444;
+        padding-bottom: 10px;
+
+    }
+
+    #recomm {
+        padding-left: 20px;
+        color: #E6A23C;
+        font-weight: bold;
+    }
+
+    #postReply {
+        display: inline-block;
+        color: #aaaaaa;
+        padding-bottom: 10px;
+        width: 80%;
+        overflow: auto;
+    }
+
+    #postReply i {
+        width: 5%;
+    }
+
+    #replyblock {
+        display: inline-block;
+        width: 85%;
+        text-align: left;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border: 1px dashed #dddddd;
+    }
+
+    #postButton {
+        display: block;
     }
 </style>

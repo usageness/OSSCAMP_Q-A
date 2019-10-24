@@ -4,5 +4,7 @@ export default {
 	loaded:null,
 	is_Show:false,
 	title:'',
-	con:'기본값'
+	con:'',
+	reply:'',
+	recom:''
 }

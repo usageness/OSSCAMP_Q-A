@@ -28,6 +28,8 @@ export default {
 		state.is_Show = true;
 		state.title = payload.title;
 		state.con = payload.con;
+		state.reply = payload.reply;
+		state.recom = payload.recom;
 	},
 	[board.UPDATE_SHOW_INVISIBLE](state){
 		console.log("DDD state ", state, state.is_Show);

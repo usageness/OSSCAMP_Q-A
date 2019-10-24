@@ -7,7 +7,7 @@
             </div>
             <div class="s_result" v-if="searchInput!=''" v-show="true">
                 <ul>
-                    <li v-for="(item, index) in items" :key="index" v-if="item.title.includes(searchInput)" @click="context_view(item.title, item.context)">{{item.title}}</li>
+                    <li v-for="(item, index) in items" :key="index" v-if="item.title.includes(searchInput)" @click="context_view(item.title, item.context, item.recom, item.reply)">{{item.title}}</li>
                 </ul>
             </div>
             <div class="menuList">
@@ -52,9 +52,9 @@
             gotoPage(pageName) {
                 this.$router.push({path: "/" + pageName})
             },
-            context_view: function (title, con) {
+            context_view: function (title, con, recom, reply) {
                 console.log("클릭댐 main", state.is_Show, title, con);
-                this[boardActions.LOAD_SHOW_VISIBLE]({title: title, con: con});
+                this[boardActions.LOAD_SHOW_VISIBLE]({title: title, con: con, recom: recom, reply: reply});
             },
             ...mapActions(boardActions)
         },
