@@ -5,6 +5,6 @@ export default {
 	is_Show:false,
 	title:'',
 	con:'',
-	reply:'',
+	reply:[],
 	recom:''
 }

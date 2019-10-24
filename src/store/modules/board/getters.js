@@ -7,7 +7,7 @@ export default {
 		return state.is_Show;
 	},
 	getPost: function(state) {
-		console.log('title:', state.title, 'con:', state.con);
+		console.log("자 겟포스트 했어", state.reply);
 		let result = {
 			title: state.title,
 			con: state.con,
@@ -15,5 +15,9 @@ export default {
 			recom: state.recom
 		};
 		return result;
+	},
+	getReply: function(state) {
+		console.log('reply:', state.reply, 'con:', state.con);
+		return state.reply;
 	}
 }
