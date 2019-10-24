@@ -42,7 +42,6 @@
 
 ## 설치 안내 (Installation Process)
 아래 방법으로 node module 설치 후 실행해주시기 바랍니다. 
-<<<<<<< HEAD
 
 ```
 npm install 
@@ -50,7 +49,6 @@ npm install
 
 npm run serve
 // server running on http://localhost:8080/
-=======
 
 ```
 npm install 
@@ -66,9 +64,9 @@ npm run serve
 메인 화면의 검색창에서 원하는 정보를 빠르게 찾아보거나<br>
 새로운 질문을 작성하고, 다른 사용자의 질문에 답변할 수 있습니다.<br><br>
 
-***주의사항*** <br>
+*주의사항* <br>
 실제 데이터베이스에 연동한 것이 아닌 json 파일을 불러오는 방식이기 때문에<br>
-브라우저를 새로고침 할 경우 데이터가 ***초기화***됩니다.<br><br>
+브라우저를 새로고침 할 경우 데이터가 *초기화*됩니다.<br><br>
 
 현재 질문 작성 기능은 준비중입니다.
 
@@ -167,6 +165,7 @@ Thanks to **[국방부오픈소스아카데미](https://osam.kr/)**<br><br>
 ## 추가 예정 기능 (Coming soon)
 
 <br>
+
 - 질문 작성
    - 찾는 정보가 없을때 질문을 통해 답변을 받을 수 있도록 합니다.
 
