@@ -95,14 +95,13 @@
                 this[boardActions.LOAD_SHOW_INVISIBLE]();
             },
             addItem() {
-                if(this.replyinput != '') {
+                if (this.replyinput != '') {
                     this[boardActions.ADD_ITEM]({
                         newItem: this.replyinput
                     });
                     this.clearEditItem();
                     this.$message('답변이 등록되었습니다.');
-                }
-                else{
+                } else {
                     this.$message('답글을 먼저 입력해주세요.');
                 }
             },
@@ -110,14 +109,15 @@
                 this.replyinput = "";
             },
             onRecommended() {
-              this.$message("추천 기능은 준비중입니다.");
+                this.$message("추천 기능은 준비중입니다.");
             },
-            ...mapActions(boardActions)
-        },
-        mounted() {
-            this[boardActions.LOAD_SHOW_INVISIBLE]();
-            console.log(state.is_Show);
-        }
+            ...mapActions(boardActions),
+    },
+    mounted()
+    {
+        this[boardActions.LOAD_SHOW_INVISIBLE]();
+        console.log(state.is_Show);
+    }
     }
 </script>
 

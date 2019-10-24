@@ -14,7 +14,7 @@
 ## 프로젝트 설명
 
 <br><br>
-군 생활에 필요한 정보들을 질문과 답변을 통해 얻어갈 수 있는 페이지입니다.
+군 생활에 필요한 정보들을 질문과 답변을 통해 얻는 페이지입니다.
 
 <br><br>
 갓 전입 온 신병에게 꼭 필요한 정보부터, 말년병장도 모르는 나만의 꿀팁까지
@@ -42,6 +42,7 @@
 
 ## 설치 안내 (Installation Process)
 아래 방법으로 node module 설치 후 실행해주시기 바랍니다. 
+<<<<<<< HEAD
 
 ```
 npm install 
@@ -49,7 +50,14 @@ npm install
 
 npm run serve
 // server running on http://localhost:8080/
+=======
+
 ```
+npm install 
+// node module install
+
+npm run serve
+// server running on localhost:8080
 
 <BR>
 
@@ -61,6 +69,11 @@ npm run serve
 ***주의사항*** <br>
 실제 데이터베이스에 연동한 것이 아닌 json 파일을 불러오는 방식이기 때문에<br>
 브라우저를 새로고침 할 경우 데이터가 ***초기화***됩니다.<br><br>
+
+현재 질문 작성 기능은 준비중입니다.
+
+실제 데이터베이스에 연동한 것이 아닌 json 파일을 불러오는 방식이기 때문에<br>
+브라우저를 새로고침 할 경우 데이터가 초기화됩니다.
 
 현재 질문 작성 기능은 준비중입니다.
 
@@ -133,7 +146,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## 배포자 및 개발자의 연락처 정보 (Contact Information)
-김용래 (kyr9389@naver.com)
+>김용래 (kyr9389@naver.com)
 
 [개발자 블로그](https://usage.tistory.com/)
 
